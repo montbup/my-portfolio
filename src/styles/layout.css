@@ -1,0 +1,311 @@
+/* Navbar */
+.navbar {
+	position: fixed; /* Hace que el header permanezca visible al hacer scroll */
+	top: 0; /* Fija el header en la parte superior */
+	left: 0;
+    width: 100%;
+    z-index: 1000; /* Asegura que esté por encima de otros elementos */
+	background-color: var(--color-primary); /* Fondo del header */
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 1rem 1rem;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra para mayor visibilidad */
+}
+
+.navbar .logo {
+	font-size: 1.5rem;
+	font-weight: bold;
+	color: var(--color-light);
+	display: flex;
+	align-items: center;
+}
+
+.navbar .logo span {
+	color: var(--color-accent);
+	margin-right: 0.5rem;
+}
+
+.nav-links {
+	list-style: none;
+	display: flex;
+	gap: 2rem;
+}
+
+.nav-links li a {
+	color: var(--color-lighter);
+	text-decoration: none;
+	font-size: 1rem;
+	transition: color 0.3s ease-in-out;
+}
+
+.nav-links li a:hover {
+	color: var(--color-light);
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+	.nav-links {
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 1rem;
+	}
+}
+
+/* About Me Section */
+.about-me {
+	background: linear-gradient(
+		180deg, /* Dirección del degradado: de arriba (0°) a abajo (180°) */
+		var(--color-primary), /* Color inicial */
+		var(--color-accent) /* Color final */
+	);
+	color: var(--color-lighter);
+	padding: 5rem 2rem;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 2rem;
+	flex-wrap: wrap;
+}
+
+.about-content {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 2rem;
+	flex-wrap: wrap;
+	width: 100%;
+}
+
+.about-text {
+	flex: 2;
+	min-width: 300px;
+}
+
+.about-text h1 {
+	font-size: 3rem;
+	color: var(--color-lighter);
+	margin-bottom: 1rem;
+}
+/* About me section */
+.about-text p {
+	font-size: 1.1rem;
+	color: var(--color-background);
+	line-height: 1.6;
+}
+
+.about-image {
+	flex: 1;
+	text-align: right;
+}
+
+.about-image img {
+	max-width: 60%;
+	border-radius: 50%; /* Hace la imagen circular */
+	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Sombra suave */
+}
+@media (max-width: 768px) {
+    .about-me {
+		padding: 3rem 1rem;
+		text-align: center; /* Centra el texto */
+	}
+	.about-me {
+		flex-direction: column;
+		text-align: center;
+	}
+	.about-content {
+		flex-direction: column;
+	}
+	.about-text {
+		text-align: center;
+	}
+	.about-image {
+		text-align: center; /* Centra la imagen en pantallas pequeñas */
+	}
+	.about-image img {
+		max-width: 20%; /* Reduce aún más el tamaño en pantallas pequeñas */
+	}
+}
+/* Línea decorativa */
+.decorative-line {
+	width: 100px; /* Longitud de la línea */
+	height: 4px; /* Grosor de la línea */
+	background-color: var(--color-light); /* Color más claro */
+	margin-bottom: 1rem; /* Espaciado debajo de la línea */
+}
+@media (max-width: 768px) {
+	.decorative-line {
+		width: 40px; /* Reduce el ancho de la línea */
+	}
+}
+
+/* Certifications-Skills section */
+.certifications-skills {
+	position: relative;
+	display: grid;
+	grid-template-columns: 1fr 1fr; /* Dos columnas */
+	align-items: center;
+	padding: 5rem 2rem;
+	background: linear-gradient(180deg, var(--color-accent), var(--color-light));
+	gap: 2rem;
+}
+
+.certifications {
+	text-align: left;
+	padding-right: 2rem;
+}
+
+.certifications h2 {
+	color: var(--color-primary);
+	font-size: 2rem;
+	margin-bottom: 1rem;
+}
+
+.certifications p {
+	color: var(--color-lighter);
+	font-size: 1.2rem;
+	line-height: 1.6;
+}
+
+.skills {
+	text-align: center;
+}
+
+.skills h2 {
+	color: var(--color-primary);
+	font-size: 2rem;
+	margin-bottom: 1rem;
+}
+
+.skills-grid {
+	display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));  /*Adaptar columnas dinamicamente*/
+    gap: 1rem;
+	justify-content: center;
+	align-items: center;
+}
+
+.skills-grid i {
+	font-size: 3rem;
+	color: var(--color-accent);
+	transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.skills-grid i:hover {
+	transform: scale(1.5);
+	color: var(--color-primary);
+}
+
+@media (max-width: 768px) {
+	.certifications-skills {
+		grid-template-columns: 1fr; /* Una columna en pantallas pequeñas */
+		text-align: center;
+		padding: 3rem 1rem;
+	}
+	.certifications {
+		padding-right: 0;
+	}
+	.skills-grid {
+		grid-template-columns: repeat(3, 1fr); /* Dos columnas para los iconos */
+	}
+}
+
+@media (max-width: 480px) {
+	.skills-grid {
+		grid-template-columns: repeat(2, 1fr); /* Dos columnas */
+	}
+}
+
+
+/* Projects Section */
+#projects {
+	padding: 4rem 2rem;
+	text-align: center;
+	background-color: var(--color-primary);
+	color: var(--color-lighter);
+}
+
+.projects-list {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+	gap: 2rem;
+}
+
+.project-card {
+	background-color: var(--color-light);
+	color: var(--color-primary);
+	padding: 1.5rem;
+	border-radius: 10px;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+	text-align: center;
+}
+
+.project-card img {
+	max-width: 100%;
+	border-radius: 10px;
+	margin-bottom: 1rem;
+}
+
+.project-card h3 {
+	font-size: 1.5rem;
+	margin-bottom: 0.5rem;
+}
+
+.project-card p {
+	font-size: 1rem;
+	margin-bottom: 1rem;
+	color: var(--color-secondary);
+}
+
+.project-card .btn {
+	background-color: var(--color-accent);
+	color: var(--color-lighter);
+	text-decoration: none;
+	padding: 0.5rem 1rem;
+	border-radius: 5px;
+	transition: background-color 0.3s ease-in-out;
+}
+
+.project-card .btn:hover {
+	background-color: var(--color-primary);
+}
+
+/* Contacto */
+#contact {
+    background-color: var(--color-accent);
+    color: var(--color-lighter);
+    text-align: center;
+    padding: 4rem 2rem;
+}
+
+#contact h2 {
+    color: white;
+}
+
+.social-links {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+.social-links a {
+    color: white;
+    font-size: 1.2rem;
+}
+
+.social-links a:hover {
+    color: var(--color-light);
+}
+
+/* Pie de página */
+footer {
+    background-color: var(--color-primary);
+    color: var(--color-lighter);
+    text-align: center;
+    padding: 1rem;
+}
+
+main {
+	margin-top: 50px; /* Ajusta este valor según la altura del header */
+}

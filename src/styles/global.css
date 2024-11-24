@@ -1,0 +1,83 @@
+@import '@fortawesome/fontawesome-free/css/all.min.css';
+
+/* Variables de colores */
+:root {
+	--color-primary: #001848;
+	--color-secondary: #301860;
+	--color-accent: #483078;
+	--color-light: #5e548e;
+	--color-lighter: #9f86c0;
+	--color-background: #be95c4;
+	--font-primary: 'Arial', sans-serif;
+}
+
+/* Reset de estilos */
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+    margin: 0; /* Elimina márgenes predeterminados */
+	padding: 0;
+    box-sizing: border-box;
+	font-family: var(--font-primary);
+	background-color: var(--color-background);
+	color: var(--color-light);
+	overflow-x: hidden;
+}
+
+/* Enlaces */
+a {
+	color: var(--color-accent);
+	text-decoration: none;
+	transition: color 0.3s ease-in-out;
+}
+
+a:hover {
+	color: var(--color-light);
+}
+
+/* Botones */
+button {
+	background-color: var(--color-accent);
+	color: white;
+	border: none;
+	padding: 0.5rem 1rem;
+	border-radius: 5px;
+	font-size: 1rem;
+	cursor: pointer;
+	transition: background-color 0.3s ease-in-out;
+}
+
+button:hover {
+	background-color: var(--color-light);
+}
+
+/* Imágenes */
+img {
+	max-width: 100%;
+	display: block;
+}
+
+/* Listas */
+ul {
+	list-style: none;
+	padding: 0;
+}
+
+li {
+	margin: 0.5rem 0;
+}
+
+/* Utilidades */
+.container {
+	width: 100%;
+	max-width: 100%;
+	margin: 0 auto;
+}
+
+.text-center {
+	text-align: center;
+}
