@@ -148,10 +148,7 @@
 	);
 	color: var(--color-lighter); /* Asegura un buen contraste para el texto */
 	padding: 5rem 2rem;
-	display: flex; /* Flexbox activa */
-	flex-direction: column; /* Los hijos están en columna */
-	align-items: flex-end; /* Alinea al lado derecho */
-	text-align: left; /* Texto alineado a la izquierda */
+	text-align: center; /* Texto alineado a la izquierda */
 }
 
 #certifications h2 {
@@ -164,7 +161,6 @@
 	color: var(--color-lighter);
 	font-size: 1.2rem;
 	line-height: 1.6;
-    width: 50%;
 }
 
 @media (max-width: 768px) {
@@ -175,10 +171,6 @@
 
 	#certifications p {
 		width: 100%; /* El texto ocupa todo el ancho */
-	}
-
-	.image-container img {
-		width: 80%; /* Imagen más grande en dispositivos pequeños */
 	}
 }
 
@@ -191,11 +183,10 @@
 	);
 	color: var(--color-lighter); /* Asegura un buen contraste para el texto */
 	padding: 4rem 2rem;
-	text-align: left; /* Cambia la alineación del texto */
+	text-align: center; /* Cambia la alineación del texto */
 	background-color: var(--color-light);
 	display: flex; /* Activa Flexbox */
 	flex-direction: column; /* Elementos en columna */
-	align-items: flex-end; /* Alinea todo hacia la derecha */
 	position: relative; /* Para manejar la posición de la imagen */
 }
 
@@ -212,58 +203,20 @@
 
 .skills-grid {
 	display: grid;
-	grid-template-columns: repeat(4, minmax(60px, 1fr));
+	grid-template-columns: repeat(5, minmax(60px, 1fr));
 	gap: 1rem;
-    width: 50%;
 	justify-content: center;
 }
 
 .skills-grid i {
 	font-size: 3rem;
-	color: var(--color-accent);
+	color: var(--color-secondary);
 	transition: transform 0.3s ease, color 0.3s ease;
 }
 
 .skills-grid i:hover {
 	transform: scale(1.2);
 	color: var(--color-primary);
-}
-
-.image-container {
-	z-index: 1; /* Detrás de los textos */
-	position: absolute;
-	width: 100%;
-	height: 100%;
-	overflow: hidden;
-}
-
-.image-container img {
-	width: 100%;
-	height: auto; /* Mantiene las proporciones */
-	object-fit: cover; /* Asegura que la imagen se ajuste */
-	opacity: 1; /* Asegúrate de que sea completamente visible */
-}
-
-.rotated-image-left {
-    position: absolute; /* Permite posicionar la imagen libremente */
-    width: auto; /* La imagen ajusta su tamaño según el contenido */
-    height: 100%; /* Imagen ocupa toda la altura */
-    transform: translateX(-20%) rotate(12deg); /* Gira y ajusta su posición */
-    left: 0; /* Alínea la imagen al borde izquierdo */
-    top: 50%; /* Centra verticalmente */
-    transform: translateY(-50%) rotate(12deg); /* Ajuste combinado para centrado vertical y rotación */
-    z-index: -1; /* Asegura que la imagen esté detrás del texto */
-}
-
-.rotated-image-rigth {
-    width: 100%; /* Asegura que la imagen ocupe el ancho total del contenedor */
-    height: auto; /* Mantiene la proporción de la imagen */
-    transform: rotate(355deg); /* Gira la imagen 10 grados hacia la izquierda */
-    position: absolute; /* Permite mover la imagen dentro del contenedor */
-    right: 0; /* Alinea la imagen al borde derecho del contenedor */
-    top: 50%; /* Ajusta la posición vertical */
-    transform: translateY(-50%) rotate(355deg); /* Centra verticalmente y aplica la rotación */
-    z-index: -1;
 }
 
 @media (max-width: 768px) {
@@ -275,10 +228,6 @@
 	.skills-grid {
 		width: 100%; /* La cuadrícula ocupa todo el ancho */
 		justify-content: center; /* Centra los iconos */
-	}
-
-	.image-container {
-		display: none; /* Opcional: Oculta la imagen decorativa en pantallas pequeñas */
 	}
 }
 
