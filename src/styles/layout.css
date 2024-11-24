@@ -249,9 +249,14 @@
 .rotated-image-left {
 	width: 100%;
 	height: auto;
-	transform: rotate(15deg); /* Gira 90 grados */
+	transform: rotate(14deg); /* Gira 90 grados */
 }
 
+.rotated-image-rigth {
+	width: 100%;
+	height: auto;
+	transform: rotate(350deg); /* Gira 90 grados */
+}
 @media (max-width: 768px) {
 	#skills {
 		align-items: center; /* Centra los elementos en pantallas pequeñas */
