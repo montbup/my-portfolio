@@ -139,50 +139,83 @@
 	}
 }
 
-/* Certifications-Skills section */
-.certifications-skills {
-	position: relative;
-	display: grid;
-	grid-template-columns: 1fr 1fr; /* Dos columnas */
-	align-items: center;
+/* Certifications section */
+#certifications {
+	background: linear-gradient(
+		180deg, /* Dirección del degradado */
+		var(--color-accent), /* Color inicial */
+		var(--color-light) /* Color final */
+	);
+	color: var(--color-lighter); /* Asegura un buen contraste para el texto */
 	padding: 5rem 2rem;
-	background: linear-gradient(180deg, var(--color-accent), var(--color-light));
-	gap: 2rem;
+	display: flex; /* Flexbox activa */
+	flex-direction: column; /* Los hijos están en columna */
+	align-items: flex-end; /* Alinea al lado derecho */
+	text-align: left; /* Texto alineado a la izquierda */
 }
 
-.certifications {
-	text-align: left;
-	padding-right: 2rem;
-}
-
-.certifications h2 {
-	color: var(--color-primary);
+#certifications h2 {
+	color: var(--color-primary); /* Contraste con el fondo */
 	font-size: 2rem;
 	margin-bottom: 1rem;
 }
 
-.certifications p {
+#certifications p {
 	color: var(--color-lighter);
 	font-size: 1.2rem;
 	line-height: 1.6;
+    width: 50%;
 }
 
-.skills {
-	text-align: center;
+@media (max-width: 768px) {
+	#certifications {
+		align-items: center; /* Cambia la alineación al centro */
+		text-align: center;
+	}
+
+	#certifications p {
+		width: 100%; /* El texto ocupa todo el ancho */
+	}
+
+	.image-container img {
+		width: 80%; /* Imagen más grande en dispositivos pequeños */
+	}
 }
 
-.skills h2 {
+/* Skills Section */
+#skills {
+    background: linear-gradient(
+		180deg, /* Dirección del degradado */
+		var(--color-light), /* Color inicial */
+		var(--color-accent) /* Color final */
+	);
+	color: var(--color-lighter); /* Asegura un buen contraste para el texto */
+	padding: 4rem 2rem;
+	text-align: left; /* Cambia la alineación del texto */
+	background-color: var(--color-light);
+	display: flex; /* Activa Flexbox */
+	flex-direction: column; /* Elementos en columna */
+	align-items: flex-end; /* Alinea todo hacia la derecha */
+	position: relative; /* Para manejar la posición de la imagen */
+}
+
+#skills h2 {
 	color: var(--color-primary);
-	font-size: 2rem;
 	margin-bottom: 1rem;
+}
+
+#skills p {
+	margin-bottom: 2rem;
+	color: var(--color-dark); /* Ajusta para mejor visibilidad */
+	font-size: 1.1rem;
 }
 
 .skills-grid {
 	display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));  /*Adaptar columnas dinamicamente*/
-    gap: 1rem;
+	grid-template-columns: repeat(4, minmax(60px, 1fr));
+	gap: 1rem;
+    width: 50%;
 	justify-content: center;
-	align-items: center;
 }
 
 .skills-grid i {
@@ -192,30 +225,48 @@
 }
 
 .skills-grid i:hover {
-	transform: scale(1.5);
+	transform: scale(1.2);
 	color: var(--color-primary);
 }
 
+.image-container {
+	grid-column: 1 / 3; /* Ocupa las dos columnas */
+	grid-row: 1 / 3; /* Ocupa las dos filas */
+	z-index: 1; /* Detrás de los textos */
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+}
+
+.image-container img {
+	width: 100%;
+	height: auto; /* Mantiene las proporciones */
+	object-fit: cover; /* Asegura que la imagen se ajuste */
+	opacity: 1; /* Asegúrate de que sea completamente visible */
+}
+
+.rotated-image-left {
+	width: 100%;
+	height: auto;
+	transform: rotate(15deg); /* Gira 90 grados */
+}
+
 @media (max-width: 768px) {
-	.certifications-skills {
-		grid-template-columns: 1fr; /* Una columna en pantallas pequeñas */
+	#skills {
+		align-items: center; /* Centra los elementos en pantallas pequeñas */
 		text-align: center;
-		padding: 3rem 1rem;
 	}
-	.certifications {
-		padding-right: 0;
-	}
+
 	.skills-grid {
-		grid-template-columns: repeat(3, 1fr); /* Dos columnas para los iconos */
+		width: 100%; /* La cuadrícula ocupa todo el ancho */
+		justify-content: center; /* Centra los iconos */
+	}
+
+	.image-container {
+		display: none; /* Opcional: Oculta la imagen decorativa en pantallas pequeñas */
 	}
 }
-
-@media (max-width: 480px) {
-	.skills-grid {
-		grid-template-columns: repeat(2, 1fr); /* Dos columnas */
-	}
-}
-
 
 /* Projects Section */
 #projects {
