@@ -230,8 +230,6 @@
 }
 
 .image-container {
-	grid-column: 1 / 3; /* Ocupa las dos columnas */
-	grid-row: 1 / 3; /* Ocupa las dos filas */
 	z-index: 1; /* Detrás de los textos */
 	position: absolute;
 	width: 100%;
@@ -247,16 +245,27 @@
 }
 
 .rotated-image-left {
-	width: 100%;
-	height: auto;
-	transform: rotate(14deg); /* Gira 90 grados */
+    position: absolute; /* Permite posicionar la imagen libremente */
+    width: auto; /* La imagen ajusta su tamaño según el contenido */
+    height: 100%; /* Imagen ocupa toda la altura */
+    transform: translateX(-20%) rotate(12deg); /* Gira y ajusta su posición */
+    left: 0; /* Alínea la imagen al borde izquierdo */
+    top: 50%; /* Centra verticalmente */
+    transform: translateY(-50%) rotate(12deg); /* Ajuste combinado para centrado vertical y rotación */
+    z-index: -1; /* Asegura que la imagen esté detrás del texto */
 }
 
 .rotated-image-rigth {
-	width: 100%;
-	height: auto;
-	transform: rotate(350deg); /* Gira 90 grados */
+    width: 100%; /* Asegura que la imagen ocupe el ancho total del contenedor */
+    height: auto; /* Mantiene la proporción de la imagen */
+    transform: rotate(355deg); /* Gira la imagen 10 grados hacia la izquierda */
+    position: absolute; /* Permite mover la imagen dentro del contenedor */
+    right: 0; /* Alinea la imagen al borde derecho del contenedor */
+    top: 50%; /* Ajusta la posición vertical */
+    transform: translateY(-50%) rotate(355deg); /* Centra verticalmente y aplica la rotación */
+    z-index: -1;
 }
+
 @media (max-width: 768px) {
 	#skills {
 		align-items: center; /* Centra los elementos en pantallas pequeñas */
@@ -275,9 +284,13 @@
 
 /* Projects Section */
 #projects {
+    background: linear-gradient(
+		180deg, /* Dirección del degradado */
+		var(--color-accent), /* Color inicial */
+		var(--color-secondary) /* Color final */
+	);
 	padding: 4rem 2rem;
 	text-align: center;
-	background-color: var(--color-primary);
 	color: var(--color-lighter);
 }
 
@@ -328,7 +341,11 @@
 
 /* Contacto */
 #contact {
-    background-color: var(--color-accent);
+    background: linear-gradient(
+		180deg, /* Dirección del degradado */
+		var(--color-secondary), /* Color inicial */
+		var(--color-primary) /* Color final */
+	);
     color: var(--color-lighter);
     text-align: center;
     padding: 4rem 2rem;
