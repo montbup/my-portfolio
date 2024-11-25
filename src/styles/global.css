@@ -57,7 +57,7 @@ button {
 }
 
 button:hover {
-	background-color: var(--color-light);
+	background-color: var(--color-lighte);
 }
 
 /* Imágenes */
@@ -78,7 +78,7 @@ li {
 
 section {
     margin-bottom: 0; 
-    padding-bottom: 4rem; 
+    padding-bottom: 2rem; 
 }
 
 /* Utilidades */

@@ -1,6 +1,9 @@
 ---
 import "../styles/global.css";
-import "../styles/layout.css";
+import "../styles/index.css";
+import Modal from '../components/Modal.astro';
+import { certifications } from "../data/certifications.js";
+import { projects } from "../data/projects.js";
 ---
 
 <layout>
@@ -38,28 +41,20 @@ import "../styles/layout.css";
 			</div>
 		</section>
 		
-		<section id="certifications">
-			<h2>Certifications</h2>
-			<p>
-				I am certified in technologies and practices essential for modern web development.
-				My certifications showcase my ability to deliver high-quality, efficient, and scalable web solutions.
-			</p>
-		</section>
-		
 		<section id="skills">
 			<h2>My Skills</h2>
 			<p>Technologies I've been working with recently:</p>
-			<div class="skills-grid">
-				<i class="fab fa-js" aria-label="JavaScript"></i>
-				<i class="fab fa-html5" aria-label="HTML5"></i>
-				<i class="fab fa-css3-alt" aria-label="CSS3"></i>
-				<i class="fab fa-node" aria-label="Node.js"></i>
-				<i class="fab fa-python" aria-label="Python"></i>
-				<i class="fab fa-git-alt" aria-label="Git"></i>
-				<i class="fab fa-java" aria-label="Java"></i>
-				<i class="fab fa-angular" aria-label="Angular"></i>
-				<i class="fab fa-docker" aria-label="Docker"></i>
-				<i class="fab fa-bootstrap" aria-label="Bootstrap"></i>
+			<div class="skills-flex">
+				<i class="fab fa-js skill-icon" aria-label="JavaScript"></i>
+				<i class="fab fa-html5 skill-icon" aria-label="HTML5"></i>
+				<i class="fab fa-css3-alt skill-icon" aria-label="CSS3"></i>
+				<i class="fab fa-node skill-icon" aria-label="Node.js"></i>
+				<i class="fab fa-python skill-icon" aria-label="Python"></i>
+				<i class="fab fa-git-alt skill-icon" aria-label="Git"></i>
+				<i class="fab fa-java skill-icon" aria-label="Java"></i>
+				<i class="fab fa-angular skill-icon" aria-label="Angular"></i>
+				<i class="fab fa-docker skill-icon" aria-label="Docker"></i>
+				<i class="fab fa-bootstrap skill-icon" aria-label="Bootstrap"></i>
 			</div>
 		</section>
 
@@ -67,20 +62,57 @@ import "../styles/layout.css";
 			<h2>My Projects</h2>
 			<p>Some things I've built so far:</p>
 			<div class="projects-list">
-				<div class="project-card">
-					<img src="/images/project1.png" alt="Project 1" />
-					<h3>Project 1</h3>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-					<a href="#" class="btn">View Project</a>
-				</div>
-				<div class="project-card">
-					<img src="/images/project2.png" alt="Project 2" />
-					<h3>Project 2</h3>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-					<a href="#" class="btn">View Project</a>
-				</div>
+				{projects.map(project => (
+					<div class="project-card">
+						<div class="project-details">
+							<h3>{project.title}</h3>
+							<p class="project-role">{project.role}</p>
+							<p class="project-dates">{project.dates}</p>
+							<p class="project-description">{project.description}</p>
+						</div>
+				  	</div>
+				))}
 			</div>
 		</section>
+
+		<section id="certifications">
+			<h2>Certifications</h2>
+			<p>
+				I am certified in technologies and practices essential for modern web development.
+				My certifications showcase my ability to deliver high-quality, efficient, and scalable web solutions.
+			</p>
+			<div class="certifications-flex">
+				{certifications.map((certification) => (
+					<div class="certification-item" data-certification-id={certification.id}>
+						<div class="certification-description">{certification.description}</div>
+						<Modal id={`modal-cert-${certification.id}`} open={certification.title}>
+							<img
+							slot="main"
+							src={certification.image}
+							alt={certification.title}
+							/>
+						</Modal>
+					</div>
+				))}
+			</div>
+			<script>
+				const buttons = document.querySelectorAll('.certification-button');
+		
+				buttons.forEach((button) => {
+					button.addEventListener('click', (event) => {
+						const target = event.target as HTMLButtonElement;
+						const certificationId = target.getAttribute('data-certification-id');
+		
+						if (certificationId) {
+							console.log(`Certification ID: ${certificationId}`);
+						} else {
+							console.error('Certification ID not found');
+						}
+					});
+				});
+			</script>
+		</section>
+
 		<section id="contact">
 			<h2>Contact Me</h2>
 			<p>Feel free to reach out via email or follow me on my social channels:</p>
@@ -90,8 +122,41 @@ import "../styles/layout.css";
 				<li><a href="#">LinkedIn</a></li>
 			</ul>
 		</section>
+		
 		<footer>
 			<p>&copy; 2024 Montbup. All rights reserved.</p>
 		</footer>
 	</main>
 </layout>
+
+<style>	
+	.certification-item {
+		position: relative; /* Necesario para posicionar la descripción */
+		text-align: center;
+  	}
+	.certification-item button:hover {
+	  	background-color: var(--color-secondary);
+	}
+
+	.certification-description {
+		position: absolute;
+		top: 50%; /* Coloca la descripción justo debajo del botón */
+		left: 50%;
+		transform: translateX(-50%);
+		width: 200px; /* Ajusta según el ancho deseado */
+		padding: 0.5rem;
+		background-color: var(--color-light);
+		color: white;
+		border-radius: 4px;
+		box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+		opacity: 0;
+		visibility: hidden;
+		transition: opacity 0.3s ease, visibility 0.3s ease;
+		z-index: 10; /* Asegura que aparezca sobre otros elementos */
+	}
+
+	.certification-item:hover .certification-description {
+		opacity: 1;
+		visibility: visible;
+	}
+  </style>
