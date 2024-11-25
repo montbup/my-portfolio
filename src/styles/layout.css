@@ -1,16 +1,16 @@
 /* Navbar */
 .navbar {
-	position: fixed; /* Hace que el header permanezca visible al hacer scroll */
-	top: 0; /* Fija el header en la parte superior */
+	position: fixed;
+	top: 0;
 	left: 0;
     width: 100%;
-    z-index: 1000; /* Asegura que esté por encima de otros elementos */
-	background-color: var(--color-primary); /* Fondo del header */
+    z-index: 1000; 
+	background-color: var(--color-primary); 
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 	padding: 1rem 1rem;
-	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra para mayor visibilidad */
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .navbar .logo {
@@ -54,11 +54,7 @@
 
 /* About Me Section */
 .about-me {
-	background: linear-gradient(
-		180deg, /* Dirección del degradado: de arriba (0°) a abajo (180°) */
-		var(--color-primary), /* Color inicial */
-		var(--color-accent) /* Color final */
-	);
+	background: linear-gradient(180deg, var(--color-primary), var(--color-accent));
 	color: var(--color-lighter);
 	padding: 5rem 2rem;
 	display: flex;
@@ -90,7 +86,7 @@
 /* About me section */
 .about-text p {
 	font-size: 1.1rem;
-	color: var(--color-background);
+	color: var(--color-lightest);
 	line-height: 1.6;
 }
 
@@ -100,14 +96,15 @@
 }
 
 .about-image img {
+    margin: 0 auto;
 	max-width: 60%;
-	border-radius: 50%; /* Hace la imagen circular */
-	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Sombra suave */
+	border-radius: 50%;
+	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 @media (max-width: 768px) {
     .about-me {
 		padding: 3rem 1rem;
-		text-align: center; /* Centra el texto */
+		text-align: center;
 	}
 	.about-me {
 		flex-direction: column;
@@ -120,41 +117,35 @@
 		text-align: center;
 	}
 	.about-image {
-		text-align: center; /* Centra la imagen en pantallas pequeñas */
+		text-align: center; 
 	}
 	.about-image img {
-		max-width: 20%; /* Reduce aún más el tamaño en pantallas pequeñas */
+		max-width: 20%;
 	}
 }
 /* Línea decorativa */
 .decorative-line {
-	width: 100px; /* Longitud de la línea */
-	height: 4px; /* Grosor de la línea */
-	background-color: var(--color-light); /* Color más claro */
-	margin-bottom: 1rem; /* Espaciado debajo de la línea */
+	width: 100px; 
+	height: 4px; 
+	background-color: var(--color-light); 
+	margin-bottom: 1rem;
 }
 @media (max-width: 768px) {
 	.decorative-line {
-		width: 40px; /* Reduce el ancho de la línea */
+		width: 40px; 
 	}
 }
 
 /* Certifications section */
 #certifications {
-	background: linear-gradient(
-		180deg, /* Dirección del degradado */
-		var(--color-accent), /* Color inicial */
-		var(--color-light) /* Color final */
-	);
-	color: var(--color-lighter); /* Asegura un buen contraste para el texto */
+	background: linear-gradient(180deg, var(--color-accent), var(--color-light));
+	color: var(--color-lighter);
 	padding: 5rem 2rem;
-	text-align: center; /* Texto alineado a la izquierda */
+	text-align: center;
 }
 
 #certifications h2 {
-	color: var(--color-primary); /* Contraste con el fondo */
-	font-size: 2rem;
-	margin-bottom: 1rem;
+	color: var(--color-primary);
 }
 
 #certifications p {
@@ -165,45 +156,40 @@
 
 @media (max-width: 768px) {
 	#certifications {
-		align-items: center; /* Cambia la alineación al centro */
+		align-items: center; 
 		text-align: center;
 	}
 
 	#certifications p {
-		width: 100%; /* El texto ocupa todo el ancho */
+		width: 100%;
 	}
 }
 
 /* Skills Section */
 #skills {
-    background: linear-gradient(
-		180deg, /* Dirección del degradado */
-		var(--color-light), /* Color inicial */
-		var(--color-accent) /* Color final */
-	);
-	color: var(--color-lighter); /* Asegura un buen contraste para el texto */
-	padding: 4rem 2rem;
-	text-align: center; /* Cambia la alineación del texto */
+    background: linear-gradient(180deg, var(--color-light), var(--color-accent));
+	color: var(--color-lighter);
+	padding: 5rem 2rem;
+	text-align: center; 
 	background-color: var(--color-light);
-	display: flex; /* Activa Flexbox */
-	flex-direction: column; /* Elementos en columna */
-	position: relative; /* Para manejar la posición de la imagen */
+	display: flex; 
+	flex-direction: column; 
+	position: relative;
 }
 
 #skills h2 {
 	color: var(--color-primary);
-	margin-bottom: 1rem;
 }
 
 #skills p {
 	margin-bottom: 2rem;
-	color: var(--color-dark); /* Ajusta para mejor visibilidad */
+	color: var(--color-dark);
 	font-size: 1.1rem;
 }
 
 .skills-grid {
 	display: grid;
-	grid-template-columns: repeat(5, minmax(60px, 1fr));
+	grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
 	gap: 1rem;
 	justify-content: center;
 }
@@ -221,24 +207,20 @@
 
 @media (max-width: 768px) {
 	#skills {
-		align-items: center; /* Centra los elementos en pantallas pequeñas */
+		align-items: center;
 		text-align: center;
 	}
 
 	.skills-grid {
-		width: 100%; /* La cuadrícula ocupa todo el ancho */
-		justify-content: center; /* Centra los iconos */
+		width: 100%; 
+		justify-content: center;
 	}
 }
 
 /* Projects Section */
 #projects {
-    background: linear-gradient(
-		180deg, /* Dirección del degradado */
-		var(--color-accent), /* Color inicial */
-		var(--color-secondary) /* Color final */
-	);
-	padding: 4rem 2rem;
+    background: linear-gradient(180deg, var(--color-accent), var(--color-secondary));
+	padding: 5rem 2rem;
 	text-align: center;
 	color: var(--color-lighter);
 }
@@ -262,6 +244,9 @@
 	max-width: 100%;
 	border-radius: 10px;
 	margin-bottom: 1rem;
+}
+.project-card h2 {
+	color: var(--color-lighter);
 }
 
 .project-card h3 {
@@ -290,14 +275,10 @@
 
 /* Contacto */
 #contact {
-    background: linear-gradient(
-		180deg, /* Dirección del degradado */
-		var(--color-secondary), /* Color inicial */
-		var(--color-primary) /* Color final */
-	);
+    background: linear-gradient(180deg, var(--color-secondary), var(--color-primary));
     color: var(--color-lighter);
     text-align: center;
-    padding: 4rem 2rem;
+    padding: 5rem 2rem;
 }
 
 #contact h2 {
@@ -329,5 +310,5 @@ footer {
 }
 
 main {
-	margin-top: 50px; /* Ajusta este valor según la altura del header */
+	margin-top: 50px; 
 }
