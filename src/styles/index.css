@@ -42,6 +42,44 @@
 	color: var(--color-light);
 }
 
+/* Hamburger menu */
+.hamburger-menu {
+	display: none;
+	background: none;
+	border: none;
+	cursor: pointer;
+	flex-direction: column;
+	gap: 5px;
+}
+
+.hamburger-menu .bar {
+	width: 25px;
+	height: 3px;
+	background-color: var(--color-light);
+	transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+@media (max-width: 768px) {
+	.nav-links {
+		display: none;
+		flex-direction: column;
+		position: absolute;
+		top: 100%;
+		left: 0;
+		width: 100%;
+		background-color: var(--color-primary);
+		padding: 1rem;
+	}
+
+	.nav-links.active {
+		display: flex;
+	}
+
+	.hamburger-menu {
+		display: flex;
+	}
+}
+
 .section-title {
 	font-size: 2rem;
 	font-weight: bold;
@@ -124,11 +162,40 @@
 	transform: rotate(360deg);
 }
 
+  
+@media (max-width: 768px) {
+    .about-me {
+		padding: 3rem 1rem;
+		text-align: center;
+	}
+	.about-me {
+		flex-direction: column;
+		text-align: center;
+	}
+	.about-content {
+		flex-direction: column;
+	}
+	.about-text {
+		text-align: center;
+	}
+	.about-image {
+		text-align: center; 
+	}
+	.about-image img {
+		max-width: 20%;
+	}
+}
+
 .decorative-line {
 	width: 100px; 
 	height: 4px; 
 	background-color: var(--color-light); 
 	margin-bottom: 1rem;
+}
+@media (max-width: 768px) {
+	.decorative-line {
+		width: 40px; 
+	}
 }
 
 #skills {
@@ -192,6 +259,18 @@
 .skill-icon:hover {
     color: var(--color-primary);
 	animation: shake 0.5s ease;
+}
+
+@media (max-width: 768px) {
+	#skills {
+		align-items: center;
+		text-align: center;
+	}
+
+	.skills-grid {
+		width: 100%; 
+		justify-content: center;
+	}
 }
 
 #projects {
@@ -313,6 +392,22 @@
     transform: scale(1.05); 
 }
 
+@media (max-width: 768px) {
+	#certifications {
+		align-items: center; 
+		text-align: center;
+	}
+
+	#certifications p {
+		width: 100%;
+	}
+	.certification-item {
+        flex: 1 1 100%; 
+        max-width: 100%;
+    }
+}
+
+
 #contact {
     background: linear-gradient(180deg, var(--color-secondary), var(--color-primary));
     color: var(--color-lighter);
@@ -350,56 +445,3 @@ footer {
 main {
 	margin-top: 50px; 
 }  
-
-
-@media (max-width: 768px) {
-	.nav-links {
-		flex-direction: column;
-		align-items: flex-start;
-		gap: 1rem;
-	}
-    .about-me {
-		padding: 3rem 1rem;
-		text-align: center;
-	}
-	.about-me {
-		flex-direction: column;
-		text-align: center;
-	}
-	.about-content {
-		flex-direction: column;
-	}
-	.about-text {
-		text-align: center;
-	}
-	.about-image {
-		text-align: center; 
-	}
-	.about-image img {
-		max-width: 20%;
-	}
-	.decorative-line {
-		width: 40px; 
-	}
-	#skills {
-		align-items: center;
-		text-align: center;
-	}
-
-	.skills-grid {
-		width: 100%; 
-		justify-content: center;
-	}
-	#certifications {
-		align-items: center; 
-		text-align: center;
-	}
-
-	#certifications p {
-		width: 100%;
-	}
-	.certification-item {
-        flex: 1 1 100%; 
-        max-width: 100%;
-    }
-}

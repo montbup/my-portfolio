@@ -12,6 +12,11 @@ import { projects } from "../data/projects.js";
 			<div class="logo">
 				<span>&lt;/&gt;</span> Montbup Developer
 			</div>
+			<button class="hamburger-menu" aria-label="Toggle navigation">
+				<div class="bar"></div>
+				<div class="bar"></div>
+				<div class="bar"></div>
+			</button>
 			<ul class="nav-links">
 				<li><a href="#about">About Me</a></li>
 				<li><a href="#certifications">Certifications</a></li>
@@ -129,6 +134,18 @@ import { projects } from "../data/projects.js";
 	</main>
 </layout>
   
+<script>
+	document.addEventListener("DOMContentLoaded", () => {
+		const hamburger = document.querySelector(".hamburger-menu");
+		const navLinks = document.querySelector(".nav-links");
+
+		hamburger.addEventListener("click", () => {
+			navLinks.classList.toggle("active");
+		});
+	});
+</script>
+
+
 <style>	
 	.certification-item {
 		position: relative;
