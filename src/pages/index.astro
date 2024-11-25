@@ -28,12 +28,12 @@ import { projects } from "../data/projects.js";
 				<div class="about-text">
 					<div class="decorative-line"></div>
 					<h1>Nice to meet you, I'm Delfina Montserrat Buenrostro Puerta</h1>
-					<p>
-						I am a Web Developer passionate about building interactive, user-friendly,
-						web applications. I strive to create meaningful digital experiences that 
-						combine functionality with aesthetic design. I enjoy solving problems and 
-						learning new technologies.
-					</p>
+					<h4>
+						I am a Full-Stack Developer passionate about building functional and meaningful 
+						digital solutions. With expertise in both frontend and backend development, 
+						as well as data analysis, I strive to create impactful and user-friendly experiences. 
+						My passion lies in continuous learning and solving complex challenges that enhance my skills.
+					</h4>
 				</div>
 				<div class="about-image">
 					<img src="/images/delfina-profile_2.svg" alt="Delfina Montserrat" />
@@ -42,8 +42,8 @@ import { projects } from "../data/projects.js";
 		</section>
 		
 		<section id="skills">
-			<h2>My Skills</h2>
-			<p>Technologies I've been working with recently:</p>
+			<h2 class="section-title skills-title">My Skills</h2>
+			<h4>These tools and technologies are the foundation of my ability to build, innovate, and bring ideas to reality</h4>
 			<div class="skills-flex">
 				<i class="fab fa-js skill-icon" aria-label="JavaScript"></i>
 				<i class="fab fa-html5 skill-icon" aria-label="HTML5"></i>
@@ -59,8 +59,8 @@ import { projects } from "../data/projects.js";
 		</section>
 
 		<section id="projects">
-			<h2>My Projects</h2>
-			<p>Some things I've built so far:</p>
+			<h2 class="section-title projects-title">My Projects</h2>
+			<h4>Some things I've built so far:</h4>
 			<div class="projects-list">
 				{projects.map(project => (
 					<div class="project-card">
@@ -76,11 +76,12 @@ import { projects } from "../data/projects.js";
 		</section>
 
 		<section id="certifications">
-			<h2>Certifications</h2>
-			<p>
-				I am certified in technologies and practices essential for modern web development.
-				My certifications showcase my ability to deliver high-quality, efficient, and scalable web solutions.
-			</p>
+			<h2 class="section-title certifications-title">Certifications</h2>
+			<h4>
+				Throughout my career, I have acquired skills and certifications in various areas, 
+				including web development, data analysis, productivity tools, and more. 
+				My focus is on leveraging technology and creativity to drive impactful results.
+			</h4>
 			<div class="certifications-flex">
 				{certifications.map((certification) => (
 					<div class="certification-item" data-certification-id={certification.id}>
@@ -118,8 +119,7 @@ import { projects } from "../data/projects.js";
 			<p>Feel free to reach out via email or follow me on my social channels:</p>
 			<ul class="social-links">
 				<li><a href="mailto:montspuerta@gmail.com">Email</a></li>
-				<li><a href="#">GitHub</a></li>
-				<li><a href="#">LinkedIn</a></li>
+				<li><a href="https://github.com/montbup">GitHub</a></li>
 			</ul>
 		</section>
 		
@@ -128,10 +128,10 @@ import { projects } from "../data/projects.js";
 		</footer>
 	</main>
 </layout>
-
+  
 <style>	
 	.certification-item {
-		position: relative; /* Necesario para posicionar la descripción */
+		position: relative;
 		text-align: center;
   	}
 	.certification-item button:hover {
@@ -140,10 +140,10 @@ import { projects } from "../data/projects.js";
 
 	.certification-description {
 		position: absolute;
-		top: 50%; /* Coloca la descripción justo debajo del botón */
+		top: 90%; 
 		left: 50%;
 		transform: translateX(-50%);
-		width: 200px; /* Ajusta según el ancho deseado */
+		width: 200px; 
 		padding: 0.5rem;
 		background-color: var(--color-light);
 		color: white;
@@ -152,11 +152,11 @@ import { projects } from "../data/projects.js";
 		opacity: 0;
 		visibility: hidden;
 		transition: opacity 0.3s ease, visibility 0.3s ease;
-		z-index: 10; /* Asegura que aparezca sobre otros elementos */
+		z-index: 10; 
 	}
 
 	.certification-item:hover .certification-description {
 		opacity: 1;
 		visibility: visible;
 	}
-  </style>
+</style>
